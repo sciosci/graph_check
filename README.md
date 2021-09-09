@@ -17,7 +17,7 @@ git clone https://github.com/uwdata/rev.git
 
 # Method 
 ## Method FlowChart
-<img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/flowchart.png" alt="drawing" width="1000"/>
+<img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/flowchart.png" alt="drawing" width="800"/>
 
 # Example
 <p float="left">
