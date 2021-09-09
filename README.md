@@ -17,7 +17,10 @@ git clone https://github.com/uwdata/rev.git
 
 # Method 
 ## Method FlowChart
-<img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/flowchart.png" alt="drawing" width="1200"/>
+<img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/flowchart.png" alt="drawing" width="1200"/>
+
+# Example
+![Image]("https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example1.png") | ![Image]("https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example2.png")
 
 # Reference
 - Bergstrom, C. T., & West, J. D. (2020). Calling Bullshit: The Art of Skepticism in a Data-Driven World (Illustrated Edition). Random House.
