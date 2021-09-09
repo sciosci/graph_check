@@ -16,8 +16,8 @@ git clone https://github.com/uwdata/rev.git
    - Use convert_swt.py to do the transformation.
 
 # Method 
-## Logicl Data Diagram
-![image](https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/flowchart.pdf)
+## Method FlowChart
+<img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/flowchart.png" alt="drawing" width="200"/>
 
 # Reference
 - Bergstrom, C. T., & West, J. D. (2020). Calling Bullshit: The Art of Skepticism in a Data-Driven World (Illustrated Edition). Random House.
