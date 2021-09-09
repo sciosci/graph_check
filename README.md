@@ -17,7 +17,7 @@ git clone https://github.com/uwdata/rev.git
 
 # Method 
 ## Logicl Data Diagram
-![image]()
+![image](https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/flowchart_HR.png)
 
 # Reference
 - Bergstrom, C. T., & West, J. D. (2020). Calling Bullshit: The Art of Skepticism in a Data-Driven World (Illustrated Edition). Random House.
