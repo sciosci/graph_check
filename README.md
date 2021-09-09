@@ -20,7 +20,10 @@ git clone https://github.com/uwdata/rev.git
 <img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/flowchart.png" alt="drawing" width="1200"/>
 
 # Example
-![Image]("https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example1.png") | ![Image]("https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example2.png")
+![Image](https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example1.png) | ![Image](https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example2.png)
+:-------------------------:|:-------------------------:
+![Image](https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example3.png) | ![Image](https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example4.png)
+The y-axis of upper two graphs does not start from zero and there are truncations in lower two graphs. Therefore, these graphs would be annotated graphical integrity issues.
 
 # Reference
 - Bergstrom, C. T., & West, J. D. (2020). Calling Bullshit: The Art of Skepticism in a Data-Driven World (Illustrated Edition). Random House.
