@@ -17,15 +17,17 @@ git clone https://github.com/uwdata/rev.git
 
 # Method 
 ## Method FlowChart
-<img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/flowchart.png" alt="drawing" width="1200"/>
+<img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/flowchart.png" alt="drawing" width="1000"/>
 
 # Example
 <p float="left">
-  <img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example1.png" width="100" />
-  <img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example2.png" width="100" /> 
+  <img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example1.png" width="400" />
+  <img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example2.png" width="400" /> 
 </p>
-
-
+<p float="left">
+  <img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example3.png" width="400" />
+  <img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/Example4.png" width="400" /> 
+</p>
 The y-axis of upper two graphs does not start from zero and there are truncations in lower two graphs. Therefore, these graphs would be annotated graphical integrity issues.
 
 # Reference
