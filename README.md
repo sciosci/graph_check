@@ -10,7 +10,7 @@ git clone https://github.com/AlexeyAB/darknet.git
 ```bash
 git clone https://github.com/uwdata/rev.git
 ```
-   - Move REV.py inside the rev.git folder before doing REV. Follow the instruction in the notebook to implement.
+    - Move REV.py inside the rev.git folder before doing REV. Follow the instruction in the notebook to implement.
 3. Stroke Width Transform (Epshtein et al., 2010)
    - We did some adjustment of stroke-width-transform. (https://github.com/sunsided/stroke-width-transform.git) 
    - Use convert_swt.py to do the transformation.
