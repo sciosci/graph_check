@@ -2,7 +2,7 @@
 A deep learning-based provess to measure violations of the proportional ink principle. The specific rules are: a bar chart’s y-axis should start from zero, have one scale, and not be partially hidden (Bergstrom & West, 2020; Tufte, 2001). The AUC of the method is 0.917 with 0.02 standard deviation and 0.77 precision with 0.0209 based on 5-fold cross-validation. 
 
 # Requirement
-1. YoloV4 (Bochkovskiy et al., 2020).
+1. YoloV4 (Bochkovskiy et al., 2020)
 ```bash
 git clone https://github.com/AlexeyAB/darknet.git
 ```
@@ -10,10 +10,10 @@ git clone https://github.com/AlexeyAB/darknet.git
 ```bash
 git clone https://github.com/uwdata/rev.git
 ```
-- Move REV.py inside the rev.git folder before doing REV. Follow the instruction in the notebook to implement.
+   - Move REV.py inside the rev.git folder before doing REV. Follow the instruction in the notebook to implement.
 3. Stroke Width Transform (Epshtein et al., 2010)
-- We did some adjustment of stroke-width-transform. (https://github.com/sunsided/stroke-width-transform.git) 
-- Use convert_swt.py to do the transformation.
+   - We did some adjustment of stroke-width-transform. (https://github.com/sunsided/stroke-width-transform.git) 
+   - Use convert_swt.py to do the transformation.
 
 # Reference
 - Bergstrom, C. T., & West, J. D. (2020). Calling Bullshit: The Art of Skepticism in a Data-Driven World (Illustrated Edition). Random House.
