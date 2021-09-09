@@ -14,3 +14,4 @@ git clone https://github.com/uwdata/rev.git
 # Reference
 - Bergstrom, C. T., & West, J. D. (2020). Calling Bullshit: The Art of Skepticism in a Data-Driven World (Illustrated Edition). Random House.
 - Tufte, E. R. (2001). The visual display of quantitative information (Vol. 2). Graphics press Cheshire, CT.
+
