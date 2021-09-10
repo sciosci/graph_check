@@ -24,6 +24,7 @@ git clone https://github.com/uwdata/rev.git
 5. Text Recognition: Using fine-tuned Tesseract model of English texts to recognize the content of texts from text localization.
 6. Text Role Classification: Using open-source model to predict the role of texts on academic figures, basecd on the geometric information of texts (Poco & Heer, 2017).
 7. Feature Engineering: Before the feature engineering, we had a preprocessing process to correct some misclassifications. Then, extracing 7 features (see below chart) from figures to train the detector.
+
 | Feature Description | Reason |
 | ----------- | ----------- |
 | The value of the lowest y-axis label on the y-axis (detected or inference from y-axis) | he lowest y-axis label should be zero |
