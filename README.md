@@ -17,6 +17,23 @@ git clone https://github.com/uwdata/rev.git
    - Use convert_swt.py to do the transformation.
 
 # Method 
+1. Compound Figure Classification: We used CNN (Resnet-101v2, pre-trained on ImageNet) with fine-tune to classify figures into compound and non-compound figures.
+2. Compound Figure Seperation: After classification, we would seperate compound figures by  which using CNN (YOLO v4, pre-trained on MS COCO dataset) we trained to localize subfigures in compound figures. Then, did the seperation based on the result from CNN.
+3. Image Classification: We focus on bar charts in this study, so we collected diagnostc figures from IMageCLEF2016 competition (García Seco de Herrera et al., 2016) and fine-tuned a CNN (Resnet-101v2, pre-trained on ImageNet) to classify figures into categroies. (Ex: bar charts, line charts, scatter chats, ......)
+4. Text Localization: We fine-tuend a CNN (YOLO v4,  pre-trained on MS COCO dataset) to detect or localize texts on academic figures, prepocessed with Stroke Width Transformation (Bochkovskiy et al., 2020; Epshtein et al., 2010).
+5. Text Recognition: Using fine-tuned Tesseract model of English texts to recognize the content of texts from text localization.
+6. Text Role Classification: Using open-source model to predict the role of texts on academic figures, basecd on the geometric information of texts (Poco & Heer, 2017).
+7. Feature Engineering: Before the feature engineering, we had a preprocessing process to correct some misclassifications. Then, extracing 7 features (see below chart) from figures to train the detector.
+| Feature Description | Reason |
+| ----------- | ----------- |
+| The value of the lowest y-axis label on the y-axis (detected or inference from y-axis) | he lowest y-axis label should be zero |
+| The increasing rate between each pair of y-axis labels | The scales of y-axis should be consistent across each pair of neighbor y-axis labels |
+| If we need to inference the lowest text on the y-axis | If the lowest label on the y-axis is far from the x-axis, then we might ignore the actual lowest label on the y-axis |
+| If the y-axis has a mix of integer and float number | Tesseract might not perform well with float number, and thus the increasing rate in the y-axis might not be accurate |
+| The probability of being texts | We prefer texts with a higher probability of being texts |
+| The OCR confidences  of texts on the y-axis | We prefer predictions of the content of texts with a higher confidence |
+| The probability of being bar charts | Our classifier only classifies bar charts. Thus we prefer figures with a high probability of being bar charts |
+
 ## Method FlowChart
 <img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/flowchart.png" alt="drawing" width="600"/>
 
