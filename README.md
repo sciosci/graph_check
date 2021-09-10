@@ -1,5 +1,6 @@
 # Graphical integrity issues in open access publications: detection and patterns of proportional ink violations
-A deep learning-based provess to measure violations of the proportional ink principle. The specific rules are: a bar chart’s y-axis should start from zero, have one scale, and not be partially hidden (Bergstrom & West, 2020; Tufte, 2001). The AUC of the method is 0.917 with 0.02 standard deviation and 0.77 precision with 0.0209 based on 5-fold cross-validation. 
+
+Academic graphs are essential for communicating scientific ideas and results. Also, to turthfully reflct data and results, visualization reserchers have proposed several principles to guide creation process. In this work, we created a deep learning-based provess to measure violations of the proportional ink principle and the specific rules are: a bar chart’s y-axis should start from zero, have one scale, and not be partially hidden (Bergstrom & West, 2020; Tufte, 2001). The AUC of the method is 0.917 with 0.02 standard deviation and 0.77 precision with 0.0209 based on 5-fold cross-validation. 
 
 # Requirement
 1. YoloV4 (Bochkovskiy et al., 2020)
@@ -7,14 +8,15 @@ A deep learning-based provess to measure violations of the proportional ink prin
 git clone https://github.com/AlexeyAB/darknet.git
 ```
    - Follow the instruction in https://github.com/AlexeyAB/darknet.git to install YoloV4
+3. Stroke Width Transform (Epshtein et al., 2010)
+   - We did some adjustment of stroke-width-transform. (https://github.com/sunsided/stroke-width-transform.git) 
+   - Use convert_swt.py to do the transformation.
 2. Reverse-Engineering Visualizations(REV) (Poco & Heer, 2017)
 ```bash
 git clone https://github.com/uwdata/rev.git
 ```
    - Move REV.py inside the rev.git folder before doing REV. Follow the instruction in the notebook to implement.
-3. Stroke Width Transform (Epshtein et al., 2010)
-   - We did some adjustment of stroke-width-transform. (https://github.com/sunsided/stroke-width-transform.git) 
-   - Use convert_swt.py to do the transformation.
+
 
 # Method 
 1. Compound Figure Classification: We used CNN (Resnet-101v2, pre-trained on ImageNet) with fine-tune to classify figures into compound and non-compound figures.
