@@ -22,7 +22,7 @@ git clone https://github.com/uwdata/rev.git
 
 # Method 
 1. Compound Figure Classification: We used CNN (Resnet-101v2, pre-trained on ImageNet) with fine-tune to classify figures into compound and non-compound figures.
-2. Compound Figure Seperation: After classification, we would seperate compound figures by  which using CNN (YOLO v4, pre-trained on MS COCO dataset) we trained to localize subfigures in compound figures. Then, did the seperation based on the result from CNN.
+2. Subfigure Seperation: After classification, we would seperate compound figures by CNN (YOLO v4, pre-trained on MS COCO dataset) we trained to localize subfigures in compound figures. Then, did the seperation based on the result from CNN.
 3. Image Classification: We focus on bar charts in this study, so we collected diagnostc figures from IMageCLEF2016 competition (García Seco de Herrera et al., 2016) and fine-tuned a CNN (Resnet-101v2, pre-trained on ImageNet) to classify figures into categroies. (Ex: bar charts, line charts, scatter chats, ......)
 4. Text Localization: We fine-tuend a CNN (YOLO v4,  pre-trained on MS COCO dataset) to detect or localize texts on academic figures, prepocessed with Stroke Width Transformation (Bochkovskiy et al., 2020; Epshtein et al., 2010).
 5. Text Recognition: Using fine-tuned Tesseract model of English texts to recognize the content of texts from text localization.
