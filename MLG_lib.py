@@ -44,14 +44,7 @@ def feature_extract_training(labeled_data, file):
         y = 0
     else:
         y = 2
-    """
-       if file in listdir(annotated_graphs+'Misleading\\'):
-           y = 1
-       elif file in listdir(annotated_graphs+'Normal\\'):
-           y = 0
-       else:
-           y = 2
-    """
+
 
     try:
         tb = pd.read_csv(labeled_data + file[:-4] + '-pred1-texts.csv')
@@ -181,7 +174,6 @@ def validation_prediction(labeled_data, file, y, annotated_graphs, target_dir):
 
 def feature_extract_test(labeled_data, file):
 
-
     try:
         tb = pd.read_csv(labeled_data + file[:-4] + '-pred1-texts.csv')
     except:
@@ -225,30 +217,22 @@ def feature_extract_test(labeled_data, file):
     average_x_axis_pos_y = np.mean(x_axis_pos_y)
 
     if np.std(x_axis_pos_y) > 2:
-        # print("double x axes")
         x_axis_pos_y = [float(xx) for xx in x_axis_pos_y if xx > average_x_axis_pos_y]
     average_x_axis_pos_y = np.mean(x_axis_pos_y)
 
     inference_flag_1 = 0
     min_y_1 = 0
-    # print(res)
-    # print(average_step)
-    if len(res) == 0:
+
         return []
     if abs(res[0][0] - average_x_axis_pos_y) > abs(average_step / 2) and check_digit(res[1][1]) and res[-1][
         0] < average_x_axis_pos_y:
         # inference
-        # print('inference one')
         inference_flag_1 = 1
-        # print(res[0][1])
-        # print(average_increase_rate)
-        # print(abs(res[0][0] - average_x_axis_pos_y))
         min_y_1 = res[0][1] - average_increase_rate * (res[0][0] - average_x_axis_pos_y)
 
     inference_flag_2 = 0
     if not check_digit(res[0][1]) and check_digit(res[1][1]) and inference_flag_1 == 0:
         # inference
-        # print('inference two')
         inference_flag_2 = 1
         min_y_1 = res[1][1] - average_increase_rate * (res[1][0] - x_axis_pos_y)
 
@@ -416,7 +400,6 @@ def text_recognition(file, box_list):
                                            config='--psm 8 --oem 1 -c tessedit_char_whitelist=0123456789',
                                            output_type='data.frame')
             if len(font_list)>=3:
-                #print(font_list)
                 lst[8][index] = np.std(font_list)
             else:
                 lst[8][index] = 0
@@ -464,16 +447,9 @@ def enlarge_corp(img_path,ratio):
 
 
 
-
 # thresholding
 def thresholding(image):
     return cv2.threshold(image, 0, 255, cv2.THRESH_BINARY + cv2.THRESH_OTSU)[1]
-
-
-
-
-
-
 
 
 def ocr_preprocessing(img_path):
@@ -484,171 +460,6 @@ def ocr_preprocessing(img_path):
     cv2.imwrite(img_path[:-4]+'_prepro'+'.png', thresh)
 
 
-
-
-"""def text_recognition_validate(file, box_list):
-    lst = box_list
-
-    file_name = file.split('/')[-1]
-    try:
-        #os.mkdir('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\')
-        os.mkdir('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name + '/')
-    except:
-        return -1
-
-    im = Image.open(open(file, "rb"))
-
-    l_list = []
-    font_list = []
-    for index, box in enumerate(lst[1]):
-
-        im1 = im.crop((lst[1][index] - 3, lst[2][index] - 3, lst[1][index] + lst[3][index] + 3,
-                       lst[2][index] + lst[4][index] + 3))
-        #im1.save('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp.png', 'PNG')
-        im1.save('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name+'/tmp.png', 'PNG')
-
-        #img = cv2.imread('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp.png')
-        #ocr_preprocessing('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp.png')
-        img = cv2.imread('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name+'/tmp.png')
-
-        #flood_fill_single('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp.png')
-        #font_list = check_fonts('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp_flood.png')
-        #letter_count = letter_counter('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp_flood.png')
-        flood_fill_single('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name+'/tmp.png')
-        font_list = check_fonts('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name+'/tmp_flood.png')
-        letter_count = letter_counter('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name+'/tmp_flood.png')
-
-        if len(font_list)>=3:
-            #print(font_list)
-            lst[8][index] = np.std(font_list)
-        else:
-            lst[8][index] = 0
-
-
-        df1 = pytesseract.image_to_data(img, lang='digitsall_layer', \
-                                       config='--psm 8 --oem 1 -c tessedit_char_whitelist=0123456789',
-                                       output_type='data.frame')
-        #Han use eng1 but need to find the data
-        df2 = pytesseract.image_to_data(img, lang='eng1', \
-                                           config='--psm 8 --oem 1 ', output_type='data.frame')
-
-        #img2 = cv2.imread('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp_prepro.png')
-        #df3 = pytesseract.image_to_data(img2, lang='digitsall_layer', \
-        #                                config='--psm 8 --oem 1 -c tessedit_char_whitelist=0123456789',
-        #                                output_type='data.frame')
-
-        #df4 = pytesseract.image_to_data(img2, lang='eng1', \
-        #                                config='--psm 8 --oem 1 ', output_type='data.frame')
-
-
-        df = pd.concat([df1,df2])
-        df = df.sort_values(by=['conf'],ascending=False)
-
-        my_str = ''
-        conf = 0
-        distance = -1
-
-        for ind, row in df.iterrows():
-            if row['conf'] ==-1:
-                continue
-            t_str = row['text']
-
-            if distance == -1:
-                print('here')
-                my_str = t_str
-                conf = row['conf']
-                distance = abs(len(str(t_str)) - letter_count)
-
-
-            if abs(len(str(t_str))-letter_count)<distance:
-                my_str = t_str
-                conf = row['conf']
-                distance = abs(len(str(t_str))-letter_count)
-        print(my_str)
-        print(index)
-        lst[5][index] = my_str
-        lst[9][index] = conf
-
-    print(lst[5])
-    return lst"""
-
-"""def text_recognition_validate(file, box_list):
-    lst = box_list
-    file_name = file.split('/')[-1]
-    try:
-        #os.mkdir('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\')
-        os.mkdir('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name + '/')
-    except:
-        return -1
-    im = Image.open(open(file, "rb"))
-    l_list = []
-    font_list = []
-    for index, box in enumerate(lst[1]):
-        im1 = im.crop((lst[1][index] - 3, lst[2][index] - 3, lst[1][index] + lst[3][index] + 3,
-                       lst[2][index] + lst[4][index] + 3))
-        #im1.save('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp.png', 'PNG')
-        im1.save('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name+'/tmp.png', 'PNG')
-        #img = cv2.imread('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp.png')
-        img = cv2.imread('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name+'/tmp.png')
-        #ocr_preprocessing('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp.png')
-        #flood_fill_single('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp.png')
-        #font_list = check_fonts('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp_flood.png')
-        #letter_count = letter_counter('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp_flood.png')
-        flood_fill_single('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name+'/tmp.png')
-        font_list = check_fonts('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name+'/tmp_flood.png')
-        letter_count = letter_counter('/home/thuang12/Desktop/Misleading_Graph/data/tmp/'+file_name+'/tmp_flood.png')
-        
-        if len(font_list)>=3:
-            #print(font_list)
-            lst[8][index] = np.std(font_list)
-        else:
-            lst[8][index] = 0
-        #df1 = pytesseract.image_to_data(img, lang='digitsall_layer', \
-        #                               config='--psm 8 --oem 1 -c tessedit_char_whitelist=0123456789',
-        #                               output_type='data.frame')
-        #pil_img = Image.open('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp.png')
-        pil_img = Image.open('/home/thuang12/Desktop/Misleading_Graph/data/tmp/' + file_name + '/tmp.png')
-        rotated_pil_img = pil_img.rotate(270,expand=True)
-        #rotated_pil_img.save('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp2.png')
-        rotated_pil_img.save('/home/thuang12/Desktop/Misleading_Graph/data/tmp/' + file_name + '/tmp2.png')
-        pil_img.close()
-        #img2 = cv2.imread('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp2.png')
-        img2 = cv2.imread('/home/thuang12/Desktop/Misleading_Graph/data/tmp/' + file_name + '/tmp2.png')
-
-        df1 = pytesseract.image_to_data(img, lang='engrestrict_best', \
-                                           config='--psm 8 --oem 1 ', output_type='data.frame')
-        df2 = pytesseract.image_to_data(img2, lang='engrestrict_best', \
-                                           config='--psm 8 --oem 1 ', output_type='data.frame')
-        #img2 = cv2.imread('D:\\Misleading_Graph\\data\\tmp\\' + file_name + '\\tmp_prepro.png')
-        #df3 = pytesseract.image_to_data(img2, lang='digitsall_layer', \
-        #                                config='--psm 8 --oem 1 -c tessedit_char_whitelist=0123456789',
-        #                                output_type='data.frame')
-        #df4 = pytesseract.image_to_data(img2, lang='eng1', \
-        #                                config='--psm 8 --oem 1 ', output_type='data.frame')
-        df = pd.concat([df1,df2])
-        df = df.sort_values(by=['conf'],ascending=False)
-        my_str = ''
-        conf = 0
-        distance = 999
-
-        print('here')
-        for ind, row in df.iterrows():
-            if row['conf'] == -1:
-                continue
-            t_str = str(row['text'])
-            if t_str.split('.')[-1] == '0':
-                t_str = str(int(float(t_str)))
-            print(t_str)
-            if abs(len(str(t_str))-letter_count) < distance:
-                my_str = t_str
-                conf = row['conf']
-                distance = abs(len(str(t_str))-letter_count)
-        print(my_str)
-        print(letter_count)
-        lst[5][index] = my_str
-        lst[9][index] = conf
-    #print(lst[5])
-    return lst"""
 
 def text_recognition_validate(file, box_list):
     lst = box_list
@@ -735,6 +546,7 @@ def text_recognition_validate(file, box_list):
     #print(lst[5])
     return lst
 
+
 def parse_line_text(text_list, target_dir):
     file = text_list[0]
     file_name = file.split('/')[-1]
@@ -757,13 +569,14 @@ def parse_line_text(text_list, target_dir):
     shutil.copy(file, target_dir + file_name)
     print('done')
 
+
 def parse_line_text_validate(text_list,org_img_dir, target_dir):
     file = text_list[0]
     file_name = file.split('/')[-1]
     file = org_img_dir+file_name
     print(file)
     lst = text_list[1]
-
+	
     lst = text_recognition_validate(file, lst)
     print(lst)
     if lst == -1:
