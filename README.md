@@ -19,7 +19,6 @@ git clone https://github.com/uwdata/rev.git
 ```
    - Move REV.py inside the rev.git folder before doing REV. Follow the instruction in the notebook to implement.
 
-## test
 # Method 
 1. Compound Figure Classification: We used CNN (Resnet-101v2, pre-trained on ImageNet) with fine-tune to classify figures into compound and non-compound figures.
 2. Subfigure Seperation: After classification, we would seperate compound figures by CNN (YOLO v4, pre-trained on MS COCO dataset) we trained to localize subfigures in compound figures. Then, did the seperation based on the result from CNN.
