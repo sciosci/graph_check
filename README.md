@@ -39,7 +39,7 @@ git clone https://github.com/uwdata/rev.git
 | The probability of being bar charts | Our classifier only classifies bar charts. Thus we prefer figures with a high probability of being bar charts |
 
 ## Method FlowChart
-<img src="https://github.com/PeterHuang024/Graphical_Integrity_Issues/blob/main/images/flowchart.png" alt="drawing" width="600"/>
+<img src="https://github.com/sciosci/Graphical_Integrity_Issues/blob/main/images/flowchart.png" alt="drawing" width="600"/>
 
 # Example
 <p float="left">
@@ -55,7 +55,7 @@ The y-axis of upper two graphs does not start from zero and there are truncation
 # License
 <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/"><img alt="Creative Commons License" style="border-width:0" src="https://i.creativecommons.org/l/by-nc/4.0/88x31.png" /></a><br />This work is licensed under a <a rel="license" href="http://creativecommons.org/licenses/by-nc/4.0/">Creative Commons Attribution-NonCommercial 4.0 International License</a> \
 (c) Han Zhuang, Tzu-Yang Huang, and Daniel Acuna 2020 - 2021 Attribution-NonCommercial 4.0 International (CC BY-NC 4.0)  \
-[Science of Science + Computational Lab](https://scienceofscience.org/) in the School of Information Studies at Syracuse Univeristy.
+[Science of Science + Computational Discovery Lab](https://scienceofscience.org/) in the School of Information Studies at Syracuse Univeristy.
 
 # Reference
 - Bergstrom, C. T., & West, J. D. (2020). Calling Bullshit: The Art of Skepticism in a Data-Driven World (Illustrated Edition). Random House.
