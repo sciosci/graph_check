@@ -39,16 +39,16 @@ git clone https://github.com/uwdata/rev.git
 | The probability of being bar charts | Our classifier only classifies bar charts. Thus we prefer figures with a high probability of being bar charts |
 
 ## Method FlowChart
-<img src="https://github.com/sciosci/Graphical_Integrity_Issues/blob/main/images/flowchart.png" alt="drawing" width="600"/>
+<img src="https://github.com/sciosci/graph_check/blob/main/images/flowchart.png" alt="drawing" width="600"/>
 
 # Example
 <p float="left">
-  <img src="https://github.com/sciosci/Graphical_Integrity_Issues/blob/main/images/Example1.png" width="400" />
-  <img src="https://github.com/sciosci/Graphical_Integrity_Issues/blob/main/images/Example2.png" width="400" /> 
+  <img src="https://github.com/sciosci/graph_check/blob/main/images/Example1.png" width="400" />
+  <img src="https://github.com/sciosci/graph_check/blob/main/images/Example2.png" width="400" /> 
 </p>
 <p float="left">
-  <img src="https://github.com/sciosci/Graphical_Integrity_Issues/blob/main/images/Example3.png" width="400" />
-  <img src="https://github.com/sciosci/Graphical_Integrity_Issues/blob/main/images/Example4.png" width="400" /> 
+  <img src="https://github.com/sciosci/graph_check/blob/main/images/Example3.png" width="400" />
+  <img src="https://github.com/sciosci/graph_check/blob/main/images/Example4.png" width="400" /> 
 </p>
 The y-axis of upper two graphs does not start from zero and there are truncations in lower two graphs. Therefore, these graphs would be annotated graphical integrity issues.
 
